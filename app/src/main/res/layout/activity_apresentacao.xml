@@ -4,14 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lucascarvalho.adopet.Apresentacao">
+    tools:context="com.example.lucascarvalho.adopet.Apresentacao"
+    android:background="@drawable/tutorial_1">
 
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        app:srcCompat="@drawable/tutorial_1" />
 </RelativeLayout>
