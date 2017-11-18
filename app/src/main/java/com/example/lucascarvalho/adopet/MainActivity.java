@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     final int REQUEST_CODE_GALLERY3 = 997;
     final int REQUEST_CODE_GALLERY4 = 996;
     final String dono = null;
+    String commit;
     public static SQLiteHelper sqLiteHelper;
 
     @Override
