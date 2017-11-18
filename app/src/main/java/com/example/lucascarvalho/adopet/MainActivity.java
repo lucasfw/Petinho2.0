@@ -46,7 +46,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
         final String emailFromIntent = getIntent().getStringExtra("EMAIL");
+        final String ong = getIntent().getStringExtra("EHONG");
 
+        if(!ong.equals("sim")){
+            Intent i = new Intent(MainActivity.this,UserAnimalList.class);
+            startActivity(i);
+        }
         //edtDono.setText(emailFromIntent);
         sqLiteHelper = new SQLiteHelper(this, "AnimaisDB.sqlite", null, 1);
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS ANIMAIS (Id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR, porte VARCHAR,idade INT,dono VARCHAR, sexo VARCHAR, image1 BLOB,image2 BLOB,image3 BLOB,image4 BLOB,especie VARCHAR,localizacao VARCHAR)");
