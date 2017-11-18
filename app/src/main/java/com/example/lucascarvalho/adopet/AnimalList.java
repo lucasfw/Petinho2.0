@@ -40,6 +40,7 @@ public class AnimalList extends AppCompatActivity {
     AnimalListAdapter adapter = null;
     public final static String teste = "com.example.lucascarvalho.adopet.Id";
 
+
     private String getAnimal(int id) {
         Cursor cursor = MainActivity.sqLiteHelper.getData("SELECT * FROM ANIMAIS WHERE ID =" + id);
 
@@ -55,7 +56,8 @@ public class AnimalList extends AppCompatActivity {
             byte[] image2 = cursor.getBlob(7);
             byte[] image3 = cursor.getBlob(8);
             byte[] image4 = cursor.getBlob(9);
-
+            String especie = cursor.getString(10);
+            String localizacao = cursor.getString(11);
         }
         adapter.notifyDataSetChanged();
         return name;
@@ -86,8 +88,10 @@ public class AnimalList extends AppCompatActivity {
             byte[] image2 = cursor.getBlob(7);
             byte[] image3 = cursor.getBlob(8);
             byte[] image4 = cursor.getBlob(9);
+            String especie = cursor.getString(10);
+            String localizacao = cursor.getString(11);
 
-            list.add(new Animal(id, name, porte,idade, dono,sexo, image1, image2, image3, image4));
+            list.add(new Animal(id, name, porte,idade, dono,sexo, image1, image2, image3, image4, especie, localizacao));
         }
         adapter.notifyDataSetChanged();
 
@@ -154,6 +158,7 @@ public class AnimalList extends AppCompatActivity {
     ImageView imageViewAnimal2;
     ImageView imageViewAnimal3;
     ImageView imageViewAnimal4;
+
     private void showDialogUpdate(Activity activity, final int position){
         final Dialog dialog = new Dialog(activity);
         dialog.setContentView(R.layout.update_animal_activity);
@@ -164,18 +169,48 @@ public class AnimalList extends AppCompatActivity {
         imageViewAnimal3 = (ImageView) dialog.findViewById(R.id.imgv3);
         imageViewAnimal4 = (ImageView) dialog.findViewById(R.id.imgv4);
         final EditText edtNome = (EditText) dialog.findViewById(R.id.edtNome);
-        final EditText edtPorte = (EditText) dialog.findViewById(R.id.edtPorte);
+        final EditText edtPorte = (EditText) dialog.findViewById(R.id.edtEspecie);
         final EditText edtIdade = (EditText) dialog.findViewById(R.id.edtIdade);
         final EditText edtDono = (EditText) dialog.findViewById(R.id.edtDono);
         final EditText edtSexo = (EditText) dialog.findViewById(R.id.edtSexo);
-        Button btnUpdate = (Button) dialog.findViewById(R.id.btnUpdate);
-
+        final EditText edtEspecie = (EditText) dialog.findViewById(R.id.edtEspecie);
+        final EditText edtLocalizacao = (EditText) dialog.findViewById(R.id.edtLocalizacao);
+        Button btnUpdate = (Button) dialog.findViewById(R.id.btnAtualizar);
+        Button btnTeste = (Button) dialog.findViewById(R.id.btnTeste);
         //largura para o dialog
         int width = (int) (activity.getResources().getDisplayMetrics().widthPixels * 0.95);
         //altura para o dialog
-        int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.7);
+        int height = (int) (activity.getResources().getDisplayMetrics().heightPixels * 0.9);
         dialog.getWindow().setLayout(width, height);
         dialog.show();
+
+        btnTeste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    MainActivity.sqLiteHelper.updateData(
+                            edtNome.getText().toString().trim(),
+                            edtPorte.getText().toString().trim(),
+                            Integer.parseInt(edtIdade.getText().toString().trim()),
+                            edtDono.getText().toString().trim(),
+                            edtSexo.getText().toString().trim(),
+                            MainActivity.imageViewToByte(imageViewAnimal1),
+                            MainActivity.imageViewToByte(imageViewAnimal2),
+                            MainActivity.imageViewToByte(imageViewAnimal3),
+                            MainActivity.imageViewToByte(imageViewAnimal4),
+                            edtEspecie.getText().toString().trim(),
+                            edtLocalizacao.getText().toString().trim(),
+                            position
+                    );
+                    dialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Atualizado com Sucesso", Toast.LENGTH_SHORT).show();
+                }
+                catch (Exception error){
+                    Log.d("Update error: ", error.getMessage());
+                }
+                updateAnimalList();
+            }
+        });
 
         imageViewAnimal1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,6 +238,8 @@ public class AnimalList extends AppCompatActivity {
                             MainActivity.imageViewToByte(imageViewAnimal2),
                             MainActivity.imageViewToByte(imageViewAnimal3),
                             MainActivity.imageViewToByte(imageViewAnimal4),
+                            edtEspecie.getText().toString().trim(),
+                            edtLocalizacao.getText().toString().trim(),
                             position
                     );
                     dialog.dismiss();
@@ -258,8 +295,10 @@ public class AnimalList extends AppCompatActivity {
             byte[] image2 = cursor.getBlob(7);
             byte[] image3 = cursor.getBlob(8);
             byte[] image4 = cursor.getBlob(9);
+            String especie = cursor.getString(10);
+            String localizacao = cursor.getString(11);
 
-            list.add(new Animal(id, name, porte, idade, dono,sexo,image1,image2,image3,image4));
+            list.add(new Animal(id, name, porte, idade, dono,sexo,image1,image2,image3,image4,especie,localizacao));
         }
         adapter.notifyDataSetChanged();
     }

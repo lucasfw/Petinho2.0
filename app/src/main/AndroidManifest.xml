@@ -24,16 +24,21 @@
             android:label="Animal List"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".AnimalView" />
-        <activity
-            android:name=".MainActivityTeste"
-            android:label="@string/title_activity_main_teste" />
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".UserAreaActivity" />
-        <activity android:name=".activity_users_list" />
-        <activity android:name=".item_user_recycler" />
         <activity android:name=".Apresentacao2" />
-        <activity android:name=".Apresentacao3"></activity>
+        <activity android:name=".Apresentacao3" />
+        <activity android:name=".loginregister.activities.LoginActivity" />
+        <activity android:name=".loginregister.activities.RegisterActivity" />
+        <activity android:name=".loginregister.activities.UsersListActivity" />
+        <activity android:name=".Redireciona" />
+        <activity
+            android:name=".UserAnimalList"
+            android:label="@string/title_activity_user_animal_list"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AdvancedSearch" />
+        <activity
+            android:name=".Sobre"
+            android:label="@string/title_activity_sobre"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

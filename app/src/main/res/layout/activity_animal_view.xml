@@ -1,101 +1,181 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/relativeAnimalView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fundoGeral"
+    android:orientation="vertical">
 
-    <ImageView
+
+    <TextView
+        android:id="@+id/edtIdade"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Idade"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignStart="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/edtSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtIdade"
+        android:layout_alignBottom="@+id/edtIdade"
+        android:layout_alignStart="@+id/textView3"
+        android:text="Sexo"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/edtPorte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Porte"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        android:layout_below="@+id/textView4"
+        android:layout_alignStart="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/edtLocalizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/edtPorte"
+        android:layout_alignBottom="@+id/edtPorte"
+        android:layout_alignStart="@+id/textView5"
+        android:text="Localização"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageViewAnimalSolo1"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_alignTop="@+id/imageViewAnimalSolo4"
-        android:layout_toStartOf="@+id/imageViewAnimalSolo2" />
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/imageViewAnimalSolo3"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/login"
+        app:civ_border_color="@color/colorText" />
+
+    <!--<ImageView-->
+    <!--android:id="@+id/imageViewAnimalSolo1"-->
+    <!--android:layout_width="80dp"-->
+    <!--android:layout_height="80dp"-->
+    <!--app:srcCompat="@mipmap/ic_launcher"-->
+    <!--android:layout_marginTop="24dp"-->
+    <!--android:layout_alignParentTop="true"-->
+    <!--android:layout_toStartOf="@+id/imageViewAnimalSolo2" />-->
 
     <ImageView
         android:id="@+id/imageViewAnimalSolo4"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_above="@+id/btnVoltar"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="25dp" />
+        android:layout_alignTop="@+id/imageViewAnimalSolo3"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/imageViewAnimalSolo3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_alignTop="@+id/imageViewAnimalSolo2"
-        android:layout_alignEnd="@+id/edtDono" />
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageView
         android:id="@+id/imageViewAnimalSolo2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        app:srcCompat="@mipmap/ic_launcher"
-        android:layout_alignTop="@+id/imageViewAnimalSolo1"
-        android:layout_toStartOf="@+id/imageViewAnimalSolo3" />
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/imageViewAnimalSolo3"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:srcCompat="@mipmap/ic_launcher" />
 
     <EditText
         android:id="@+id/edtNome"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageViewAnimalSolo1"
+        android:background="#2e3192"
+        android:clickable="false"
+        android:cursorVisible="false"
         android:ems="10"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:inputType="textPersonName"
         android:text="Nome"
-        android:layout_below="@+id/imgv2"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="21dp" />
+        android:textAlignment="center"
+        android:textColor="@color/colorText"
+        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edtPorte"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Porte"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/edtNome"
-        android:layout_alignStart="@+id/edtNome" />
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/edtNome"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="42dp"
+        android:text="Idade:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sexo:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="14sp"
+        android:layout_above="@+id/edtSexo"
+        android:layout_alignStart="@+id/imageViewAnimalSolo1" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_below="@+id/edtIdade"
+        android:layout_marginTop="19dp"
+        android:text="Porte:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignStart="@+id/textView3"
+        android:text="Localização:"
+        android:textColor="@android:color/background_dark"
+        android:textSize="14sp" />
 
     <Button
-        android:id="@+id/btnVoltar"
+        android:id="@+id/btnQueroAdotar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Voltar"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="#2e3192"
+        android:text="ADOTAR"
+        android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/edtIdade"
+    <TextView
+        android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/edtPorte"
-        android:layout_below="@+id/edtPorte"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:layout_alignTop="@+id/edtIdade"
+        android:layout_toEndOf="@+id/edtIdade"
+        android:text="anos"
+        android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/edtDono"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/edtIdade"
-        android:layout_centerVertical="true"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
-
-    <EditText
-        android:id="@+id/edtSexo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageViewAnimalSolo1"
-        android:layout_alignStart="@+id/edtDono"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name" />
 </RelativeLayout>

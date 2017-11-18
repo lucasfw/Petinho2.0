@@ -53,17 +53,17 @@
         android:layout_marginTop="21dp" />
 
     <EditText
-        android:id="@+id/edtPorte"
+        android:id="@+id/edtEspecie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Porte"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/edtNome"
         android:layout_alignStart="@+id/edtNome" />
 
     <Button
-        android:id="@+id/btnUpdate"
+        android:id="@+id/btnAtualizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Atualizar"
@@ -75,22 +75,58 @@
         android:id="@+id/edtIdade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/edtPorte"
-        android:layout_below="@+id/edtPorte"
-        android:layout_marginTop="17dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
-        tools:text="1" />
+        android:text="1"
+        android:layout_below="@+id/edtEspecie"
+        android:layout_alignStart="@+id/edtEspecie" />
 
     <EditText
         android:id="@+id/edtDono"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/edtIdade"
-        android:layout_below="@+id/edtIdade"
-        android:layout_marginTop="28dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Dono" />
+        android:text="Dono"
+        android:layout_below="@+id/edtIdade"
+        android:layout_alignStart="@+id/edtIdade" />
+
+    <Button
+        android:id="@+id/btnTeste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnAtualizar"
+        android:layout_alignStart="@+id/imgv3"
+        android:layout_marginStart="23dp"
+        android:text="Button" />
+
+    <EditText
+        android:id="@+id/edtSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Macho"
+        android:layout_below="@+id/edtDono"
+        android:layout_alignStart="@+id/edtDono" />
+
+    <EditText
+        android:id="@+id/edtEspecie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edtSexo"
+        android:layout_below="@+id/edtSexo"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/edtLocalizacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/edtEspecie"
+        android:layout_below="@+id/edtEspecie"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
 </RelativeLayout>

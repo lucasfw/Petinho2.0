@@ -15,8 +15,10 @@ public class Animal {
     private byte[] image2;
     private byte[] image3;
     private byte[] image4;
+    private String especie;
+    private String localizacao;
 
-    public Animal(int id, String nome, String porte, int idade, String dono,String sexo, byte[] image1, byte[] image2, byte[] image3, byte[] image4) {
+    public Animal(int id, String nome, String porte, int idade, String dono,String sexo, byte[] image1, byte[] image2, byte[] image3, byte[] image4, String especie, String localizacao) {
         this.id = id;
         this.nome = nome;
         this.porte = porte;
@@ -27,6 +29,8 @@ public class Animal {
         this.image2 = image2;
         this.image3 = image3;
         this.image4 = image4;
+        this.especie = especie;
+        this.localizacao = localizacao;
     }
 
     public int getId() {
@@ -107,5 +111,21 @@ public class Animal {
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
+    }
+
+    public String getEspecie() {
+        return especie;
+    }
+
+    public void setEspecie(String especie) {
+        this.especie = especie;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
     }
 }

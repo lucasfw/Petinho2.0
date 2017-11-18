@@ -13,7 +13,7 @@ public class Apresentacao2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apresentacao2);
 
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         new Handler().postDelayed(new Runnable(){
@@ -21,7 +21,7 @@ public class Apresentacao2 extends AppCompatActivity {
                 startActivity(new Intent(getBaseContext(), Apresentacao3.class));
                 finish();
             }
-        },5000);
+        },1000);
     }
 
 }

@@ -20,9 +20,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         database.execSQL(sql);
     }
 
-    public void insertData(String nome, String porte,int idade, String dono, String sexo, byte[] image1, byte[] image2, byte[] image3, byte[] image4){
+    public void insertData(String nome, String porte,int idade, String dono, String sexo, byte[] image1, byte[] image2, byte[] image3, byte[] image4, String especie, String localizacao){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO ANIMAIS VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO ANIMAIS VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
@@ -36,14 +36,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         statement.bindBlob(7, image2);
         statement.bindBlob(8, image3);
         statement.bindBlob(9, image4);
-
+        statement.bindString(10, especie);
+        statement.bindString(11, localizacao);
         statement.executeInsert();
     }
 
-    public void updateData (String nome, String porte,int idade, String dono, String sexo, byte[] image1, byte[] image2, byte[] image3, byte[] image4,int id){
+    public void updateData (String nome, String porte,int idade, String dono, String sexo, byte[] image1, byte[] image2, byte[] image3, byte[] image4,String especie, String localizacao,int id){
         SQLiteDatabase database = getWritableDatabase();
 
-        String sql = "UPDATE ANIMAIS SET name = ?, descricao = ?, image = ? WHERE id = ?";
+        String sql = "UPDATE ANIMAIS SET nome = ?, porte = ?, idade = ?, dono = ?, sexo = ?, image1 = ?, image2 = ?, image3 = ?, image4 = ?, especie = ?, localizacao = ? WHERE id = ?";
         SQLiteStatement statement = database.compileStatement(sql);
 
         statement.bindString(1, nome);
@@ -55,7 +56,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         statement.bindBlob(7, image2);
         statement.bindBlob(8, image3);
         statement.bindBlob(9, image4);
-        statement.bindDouble(10,(double)id);
+        statement.bindString(10, especie);
+        statement.bindString(11, localizacao);
+        statement.bindDouble(12,(double)id);
 
         statement.execute();
         database.close();
@@ -77,6 +80,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         byte[] image2 = cursor.getBlob(cursor.getColumnIndex("image2"));
         byte[] image3 = cursor.getBlob(cursor.getColumnIndex("image3"));
         byte[] image4 = cursor.getBlob(cursor.getColumnIndex("image4"));
+        String especie = cursor.getString(cursor.getColumnIndex("especie"));
+        String localizacao = cursor.getString(cursor.getColumnIndex("localizacao"));
         StringBuilder conversor1 = new StringBuilder();
         StringBuilder conversor2 = new StringBuilder();
         StringBuilder conversor3 = new StringBuilder();
@@ -86,6 +91,8 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         StringBuilder conversor7 = new StringBuilder();
         StringBuilder conversor8 = new StringBuilder();
         StringBuilder conversor9 = new StringBuilder();
+        StringBuilder conversor10 = new StringBuilder();
+        StringBuilder conversor11 = new StringBuilder();
         conversor1.append(nome);
         conversor2.append(porte);
         conversor3.append(idade);
@@ -95,7 +102,9 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         conversor7.append(image3);
         conversor8.append(image4);
         conversor9.append(sexo);
-        Animal a = new Animal(idAnimal, conversor1.toString(), conversor2.toString(),idade,conversor4.toString(),conversor9.toString(), image1,image2,image3,image4);
+        conversor10.append(especie);
+        conversor11.append(localizacao);
+        Animal a = new Animal(idAnimal, conversor1.toString(), conversor2.toString(),idade,conversor4.toString(),conversor9.toString(), image1,image2,image3,image4, conversor10.toString(), conversor11.toString());
         return a;
     }
 
