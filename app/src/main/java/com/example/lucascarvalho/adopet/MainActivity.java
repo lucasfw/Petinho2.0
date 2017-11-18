@@ -169,6 +169,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, AnimalList.class);
+                intent.putExtra("EMAIL", emailFromIntent);
+                intent.putExtra("EHONG", "sim");
                 startActivity(intent);
             }
         });
@@ -288,7 +290,7 @@ public class MainActivity extends AppCompatActivity {
         btnImg3 = (Button) findViewById(R.id.btnImg3);
         btnImg4 = (Button) findViewById(R.id.btnImg4);
         btnAdicionar = (Button) findViewById(R.id.btnAdicionar);
-        btnListar = (Button) findViewById(R.id.btnListar);
+        btnListar = (Button) findViewById(R.id.btnTeste);
         imgv1 = (ImageView) findViewById(R.id.img1);
         imgv2 = (ImageView) findViewById(R.id.img2);
         imgv3 = (ImageView) findViewById(R.id.img3);
@@ -296,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
        // edtEspecie = (EditText) findViewById(R.id.edtEspecie);
         edtLocalizacao = (EditText) findViewById(R.id.edtLocalizacao);
         groupEspecie = (RadioGroup) findViewById(R.id.radioGroupEspecie);
-        groupPorte = (RadioGroup) findViewById(R.id.radioGroupPorte);
+        groupPorte = (RadioGroup) findViewById(R.id.radioGroupPorteUpdate);
         groupSexo = (RadioGroup) findViewById(R.id.radioGroupSexo);
     }
 
