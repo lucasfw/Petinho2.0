@@ -18,6 +18,7 @@ public class AnimalView extends AppCompatActivity {
     TextView passedIdade = null;
     TextView passedDono = null;
     TextView passedSexo = null;
+    TextView passedLocalizacao = null;
     ImageView passedImg1;
     ImageView passedImg2;
     ImageView passedImg3;
@@ -41,6 +42,8 @@ public class AnimalView extends AppCompatActivity {
         passedIdade=(TextView)findViewById(R.id.edtIdade);
         passedIdade.setText(Integer.toString(MainActivity.sqLiteHelper.selectData(id).getIdade()));
 
+        passedLocalizacao=(TextView)findViewById(R.id.edtLocalizacao);
+        passedLocalizacao.setText(MainActivity.sqLiteHelper.selectData(id).getLocalizacao());
 //        passedDono=(TextView)findViewById(R.id.edtDono);
 //        passedDono.setText(MainActivity.sqLiteHelper.selectData(id).getDono());
 
