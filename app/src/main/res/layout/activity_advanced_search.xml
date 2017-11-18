@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.lucascarvalho.adopet.AdvancedSearch">
+
+    <EditText
+        android:id="@+id/edtEspecie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="gato" />
+
+    <EditText
+        android:id="@+id/edtPorte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/edtEspecie"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="grande" />
+
+    <EditText
+        android:id="@+id/edtSexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/edtPorte"
+        android:layout_below="@+id/edtPorte"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="macho" />
+
+    <Button
+        android:id="@+id/btnProcurar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/edtSexo"
+        android:layout_below="@+id/edtSexo"
+        android:layout_marginTop="149dp"
+        android:text="Procurar" />
+</RelativeLayout>

@@ -48,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
         final String emailFromIntent = getIntent().getStringExtra("EMAIL");
         final String ong = getIntent().getStringExtra("EHONG");
 
-        if(!ong.equals("sim")){
+        if(ong.equals("sim")){
+
+        }else{
             Intent i = new Intent(MainActivity.this,UserAnimalList.class);
             startActivity(i);
         }
@@ -166,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
         btnListar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AdvancedSearch.class);
+                Intent intent = new Intent(MainActivity.this, AnimalList.class);
                 startActivity(intent);
             }
         });

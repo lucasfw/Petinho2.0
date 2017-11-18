@@ -11,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -23,6 +24,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.io.FileNotFoundException;
@@ -158,22 +161,55 @@ public class AnimalList extends AppCompatActivity {
     ImageView imageViewAnimal2;
     ImageView imageViewAnimal3;
     ImageView imageViewAnimal4;
-
+    final RadioGroup groupEspecie = (RadioGroup) findViewById(R.id.radioGroupEspecie);
+    final RadioGroup groupPorte = (RadioGroup) findViewById(R.id.radioGroupPorte);
+    final RadioGroup groupSexo = (RadioGroup) findViewById(R.id.radioGroupSexo);
+    String radioPorte;
+    String radioEspecie;
+    String radioSexo;
     private void showDialogUpdate(Activity activity, final int position){
         final Dialog dialog = new Dialog(activity);
         dialog.setContentView(R.layout.update_animal_activity);
         dialog.setTitle("Update");
 
-        imageViewAnimal1 = (ImageView) dialog.findViewById(R.id.imgv1);
-        imageViewAnimal2 = (ImageView) dialog.findViewById(R.id.imgv2);
-        imageViewAnimal3 = (ImageView) dialog.findViewById(R.id.imgv3);
-        imageViewAnimal4 = (ImageView) dialog.findViewById(R.id.imgv4);
+
+        imageViewAnimal1 = (ImageView) dialog.findViewById(R.id.img1);
+        imageViewAnimal2 = (ImageView) dialog.findViewById(R.id.img2);
+        imageViewAnimal3 = (ImageView) dialog.findViewById(R.id.img3);
+        imageViewAnimal4 = (ImageView) dialog.findViewById(R.id.img4);
+        groupPorte.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                RadioButton rbutton = (RadioButton) groupPorte.findViewById(checkedId);
+                String resposta = rbutton.getText().toString();
+                radioPorte = resposta;
+            }
+        });
+
+        groupEspecie.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                RadioButton rbutton = (RadioButton) groupEspecie.findViewById(checkedId);
+                String resposta = rbutton.getText().toString();
+                radioEspecie = resposta;
+            }
+        });
+
+        groupSexo.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                RadioButton rbutton = (RadioButton) groupSexo.findViewById(checkedId);
+                String resposta = rbutton.getText().toString();
+                radioSexo = resposta;
+            }
+        });
         final EditText edtNome = (EditText) dialog.findViewById(R.id.edtNome);
-        final EditText edtPorte = (EditText) dialog.findViewById(R.id.edtEspecie);
+
+        //final EditText edtPorte = (EditText) dialog.findViewById(R.id.edtEspecie);
         final EditText edtIdade = (EditText) dialog.findViewById(R.id.edtIdade);
-        final EditText edtDono = (EditText) dialog.findViewById(R.id.edtDono);
-        final EditText edtSexo = (EditText) dialog.findViewById(R.id.edtSexo);
-        final EditText edtEspecie = (EditText) dialog.findViewById(R.id.edtEspecie);
+        //final EditText edtDono = (EditText) dialog.findViewById(R.id.edtDono);
+        //final EditText edtSexo = (EditText) dialog.findViewById(R.id.edtSexo);
+        //final EditText edtEspecie = (EditText) dialog.findViewById(R.id.edtEspecie);
         final EditText edtLocalizacao = (EditText) dialog.findViewById(R.id.edtLocalizacao);
         Button btnUpdate = (Button) dialog.findViewById(R.id.btnAtualizar);
         Button btnTeste = (Button) dialog.findViewById(R.id.btnTeste);
@@ -184,7 +220,7 @@ public class AnimalList extends AppCompatActivity {
         dialog.getWindow().setLayout(width, height);
         dialog.show();
 
-        btnTeste.setOnClickListener(new View.OnClickListener() {
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
